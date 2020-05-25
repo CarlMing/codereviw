@@ -9,23 +9,23 @@ public class test {
         ArrayList<Integer> f= new ArrayList<Integer>();
         f.add(1000);
         f.add(1000000);
-        BigDecimal a = new BigDecimal(1);
-        BigDecimal b = new BigDecimal(1);
-        BigDecimal c = new BigDecimal(0);
-        BigDecimal e = new BigDecimal(0);
-        BigDecimal g = new BigDecimal(2);
+        BigDecimal num1 = new BigDecimal(1);
+        BigDecimal num2 = new BigDecimal(1);
+        BigDecimal singleSum = new BigDecimal(0);
+        BigDecimal total = new BigDecimal(0);
+        BigDecimal fixedValue = new BigDecimal(2);
         for(int item :f ){
             if(item==1){
                 System.out.println("The sum of "+item+" Numbers is "+1);
             }else{
                 for(int d=2;d<item;d++){
-                    c = a.add(b);
-                    a = b;
-                    b = c;
-                    e = e.add(c);
+                    singleSum = num1.add(num2);
+                    num1 = num2;
+                    num2 = singleSum;
+                    total = total.add(singleSum);
                 }
-                System.out.println("The Fib number of "+item+" is: "+b);
-                System.out.println("The sum of "+item+" Numbers is "+ (e.add(g)));
+                System.out.println("The Fib number of "+item+" is: "+num2);
+                System.out.println("The sum of "+item+" Numbers is "+ (total.add(fixedValue)));
             }
         }
     }
