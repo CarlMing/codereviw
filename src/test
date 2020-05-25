@@ -1,0 +1,32 @@
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
+public class test {
+    public static void main(String[] args) {
+        match();
+    }
+    public static void match(){
+        ArrayList<Integer> f= new ArrayList<Integer>();
+        f.add(1000);
+        f.add(1000000);
+        BigDecimal a = new BigDecimal(1);
+        BigDecimal b = new BigDecimal(1);
+        BigDecimal c = new BigDecimal(0);
+        BigDecimal e = new BigDecimal(0);
+        BigDecimal g = new BigDecimal(2);
+        for(int item :f ){
+            if(item==1){
+                System.out.println("这"+item+"个数的和为:"+1);
+            }else{
+                for(int d=2;d<item;d++){
+                    c = a.add(b);
+                    a = b;
+                    b = c;
+                    e = e.add(c);
+                }
+                System.out.println("这Fib"+item+"个数为:"+b);
+                System.out.println("这"+item+"个数的和为:"+(e.add(g)));
+            }
+        }
+    }
+}
