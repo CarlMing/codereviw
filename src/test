@@ -16,7 +16,7 @@ public class test {
         BigDecimal g = new BigDecimal(2);
         for(int item :f ){
             if(item==1){
-                System.out.println("这"+item+"个数的和为:"+1);
+                System.out.println("The sum of "+item+" Numbers is "+1);
             }else{
                 for(int d=2;d<item;d++){
                     c = a.add(b);
@@ -24,8 +24,8 @@ public class test {
                     b = c;
                     e = e.add(c);
                 }
-                System.out.println("这Fib"+item+"个数为:"+b);
-                System.out.println("这"+item+"个数的和为:"+(e.add(g)));
+                System.out.println("The Fib number of "+item+" is: "+b);
+                System.out.println("The sum of "+item+" Numbers is "+ (e.add(g)));
             }
         }
     }
