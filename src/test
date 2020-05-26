@@ -1,20 +1,30 @@
+import org.junit.Test;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 
 public class test {
     public static void main(String[] args) {
-        match();
-    }
-    public static void match(){
         ArrayList<Integer> f= new ArrayList<Integer>();
         f.add(1000);
         f.add(1000000);
+        Map<String , BigDecimal> map = match(f);
+        for(Map.Entry<String , BigDecimal> entry:map.entrySet()){
+            System.out.println("The " + entry.getKey() +" is " + entry.getValue());
+        }
+    }
+    public static Map<String , BigDecimal> match(ArrayList<Integer> inputNumber){
+        Map<String , BigDecimal> totalResultMap = new HashMap<>();
         BigDecimal num1 = new BigDecimal(1);
         BigDecimal num2 = new BigDecimal(1);
         BigDecimal singleSum = new BigDecimal(0);
         BigDecimal total = new BigDecimal(0);
         BigDecimal fixedValue = new BigDecimal(2);
-        for(int item :f ){
+        for(int item :inputNumber ){
             if(item==1){
                 System.out.println("The sum of "+item+" Numbers is "+1);
             }else{
@@ -24,9 +34,23 @@ public class test {
                     num2 = singleSum;
                     total = total.add(singleSum);
                 }
-                System.out.println("The Fib number of "+item+" is: "+num2);
-                System.out.println("The sum of "+item+" Numbers is "+ (total.add(fixedValue)));
+                totalResultMap.put("single" + String.valueOf(item),num2);
+                totalResultMap.put("total" + String.valueOf(item),total.add(fixedValue));
             }
         }
+        return totalResultMap;
+    }
+
+    @Test
+    public void testMatch(){
+        ArrayList<Integer> f= new ArrayList<Integer>();
+        f.add(10);
+        Map<String , BigDecimal> map = match(f);
+        //Verify the all of Fib of sum
+        BigDecimal checkTotalResult = new BigDecimal(143);
+        //Verify the current Fib
+        BigDecimal checkSingleResult = new BigDecimal(55);
+        assertEquals(checkTotalResult,map.get("total10"));
+        assertEquals(checkSingleResult,map.get("single10"));
     }
 }
